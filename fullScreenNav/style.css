@@ -1,0 +1,71 @@
+body{
+  background-color: #abc;
+}
+header{
+  height: 200px;
+  background-color: #369;
+}
+#logo{
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  line-height: 50px;
+  background-color: coral;
+  color: #bbb;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 2px 2px 5px #369;
+  font-size: 2em;
+  font-weight: 800;
+  padding: 75px 0;
+  box-sizing: border-box;
+}
+#navBtn{
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 800;
+    float: right;
+  margin: 80px 100px;
+}
+nav{
+  display: none;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8); 
+}
+nav ul{
+  display: block;
+  margin:300px auto;
+  padding: 0;
+  text-align:center;
+  list-style: none;
+}
+nav ul li{
+  display: block;
+  margin: 10px;
+  font-size: 2em;
+
+}
+nav ul li a{
+  font-size: 2.5em;
+  color: #bbb;
+  text-decoration: none;
+  text-shadow: 2px 2px 5px #000;
+  text-transform: uppercase;
+
+}
+nav #close{
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  right: 30px;
+  font-size: 8em;
+  font-family: sans-serif;
+  color: #bbb;
+  text-decoration: none;
+  text-shadow: 2px 2px 5px #000;
+
+}
