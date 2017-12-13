@@ -1,30 +1,50 @@
-var newTask = document.getElementById("newTask");
-var tasksBord = document.getElementById("tasksBord");
+document.getElementById("addBtn").addEventListener("click", addTask);
+document.getElementById("delBtn").addEventListener("click", resetTasks);
+
 var n=0;
 
 function addTask(){
+	var newTask = document.getElementById("newTask");
 	var taskText=newTask.value;
-	newTask.value="";
-	n++;
-	var newTaskTag=document.createElement("p");
-	newTaskTag.className="taskItem";
-	newTaskTag.id="l"+n;
-	newTaskTag.innerHTML=taskText+"<span class=\"date\">"+Date()+" <a href=\"#\" onClick=\"doneThis('l"+n+"')\">done</a> - <a href=\"#\" onClick=\"deleteThis('l"+n+"')\">(x)</a></span>";
-	tasksBord.appendChild(newTaskTag);
+	if(taskText!=""){
+		newTask.value="";
+		var tasksBord = document.getElementById("tasksBord");
+		n++;
+		var newId="l"+n;
+		//******** create P Tag
+		var newTaskTag=document.createElement("p");
+		newTaskTag.className="taskItem";
+		newTaskTag.id=newId;
+		var span1= document.createElement("span");
+		span1.appendChild(document.createTextNode(taskText));
+		newTaskTag.appendChild(span1);
+		//******** create SPAN Tag and add it to P  Tag
+		var span2=document.createElement("span");
+		span2.className="date";
+		span2.appendChild(document.createTextNode(Date()));
+		//******* create first ancher Tag "done" and add it to SPAN
+		var doneTag = document.createElement("a");
+		doneTag.appendChild(document.createTextNode("done"));
+		doneTag.href="#"
+		doneTag.addEventListener('click', function(){this.parentNode.parentNode.style.textDecoration = 'line-through';});
+
+		span2.appendChild(doneTag);
+		span2.appendChild(document.createTextNode("-"));
+		//******* create second ancher Tag "delete" and add it to Span
+		var delTag = document.createElement("a");
+		delTag.appendChild(document.createTextNode("(x)"));
+		delTag.href="#"
+		delTag.addEventListener('click', function(){this.parentNode.parentNode.remove();});
+		span2.appendChild(delTag);
+		newTaskTag.appendChild(span2);
+		tasksBord.appendChild(newTaskTag);
+	}else{alert("Write your TAsk first !!");}
 }
-// function deleteTask(){
-//   tasksBord.removeChild(tasksBord.firstChild);
-// }
-function deleteThis(x){
-	document.getElementById(x).remove()
-}
-function doneThis(x){
-	document.getElementById(x).style.textDecoration = 'line-through wavy #666';
-	document.getElementById(x).style.backgroundColor = '#444';
-	// document.querySelector("#"+x+">span").style= "textDecoration = 'none'";
-}
+
 function resetTasks(){
-	tasksBord.innerHTML="";
-	newTask.value="";
-	n=0;
+	if(confirm("Delete all TAsk\nAre You Sure !!??")){
+		tasksBord.innerHTML="";
+		newTask.value="";
+		n=0;
+	}
 }

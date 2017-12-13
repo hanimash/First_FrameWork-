@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body>
+<header>
+	<h1>CSS QUIZ</h1>
+</header>
+<main>
+	<div id="startDiv" class="box">
+		<h2>Welcome</h2>
+		<p>Do you want to start the Quiz game?</p>
+		<button onclick="getQuation(0)">yes</button>
+		<button onclick="stopQ()">no</button>
+	</div>
+	<form id="qDiv" class="box">
+		<p id="quationNr" class="qNr">quation nr</p>
+		<p id="quation" class="qTxt">quation 1</p>
+		<div class="answer"><input type="radio" name="a1" value="1" id="a1"><label for="a1"	id="a1l">Answer 1</label></div>
+		<div class="answer"><input type="radio" name="a1" value="2" id="a2"><label for="a2"	id="a2l">Answer 1</label></div>
+		<div class="answer"><input type="radio" name="a1" value="3" id="a3"><label for="a3"	id="a3l">Answer 1</label></div>
+		<button id="nextQ">ok</button>
+	</form>
+	<div id="resDiv" class="box">
+		<p>Thank you</p>
+		<p>you have : <span id="points">0</span> point</p>
+		<p>right Answer : <span id="rA">0</span> answer</p>
+		<p>wrong Answer : <span id="wA">0</span> answer</p>
+		<p>your wrong answers in quation Nr : <span id="wQ">0</span></p>
+		<button id="showB">show the quations</button>
+		<table id="qTabel">
+
+		</table>
+	</div>
+</main>
+
+
+
+
+
+
+<script type="text/javascript" src="quiz.js"></script>	
+</body>
+</html>
