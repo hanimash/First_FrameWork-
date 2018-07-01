@@ -21,7 +21,8 @@ function addTask(){
 		//******** create SPAN Tag and add it to P  Tag
 		var span2=document.createElement("span");
 		span2.className="date";
-		span2.appendChild(document.createTextNode(Date()));
+		var d= new Date();
+		span2.appendChild(document.createTextNode(d.toLocaleDateString()+' - '+d.toLocaleTimeString()));
 		//******* create first ancher Tag "done" and add it to SPAN
 		var doneTag = document.createElement("a");
 		doneTag.appendChild(document.createTextNode("done"));
@@ -32,7 +33,7 @@ function addTask(){
 		span2.appendChild(document.createTextNode("-"));
 		//******* create second ancher Tag "delete" and add it to Span
 		var delTag = document.createElement("a");
-		delTag.appendChild(document.createTextNode("(x)"));
+		delTag.appendChild(document.createTextNode("delete"));
 		delTag.href="#"
 		delTag.addEventListener('click', function(){this.parentNode.parentNode.remove();});
 		span2.appendChild(delTag);
